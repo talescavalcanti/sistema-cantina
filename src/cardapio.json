@@ -1,0 +1,88 @@
+{
+  "categorias": [
+    {
+      "nome": "Salgados",
+      "itens": [
+        { "id": "coxinha-frango", "nome": "Coxinha de frango", "preco": 12.0 },
+        { "id": "coxinha-frango-requeijao", "nome": "Coxinha de frango com requeijão", "preco": 14.0 },
+        { "id": "coxinha-camarao-requeijao", "nome": "Coxinha de camarão com requeijão", "preco": 18.0 },
+        { "id": "coxinha-charque-requeijao", "nome": "Coxinha de charque com requeijão", "preco": 16.0 },
+        { "id": "coxinha-batata-doce-frango", "nome": "Coxinha de batata-doce com frango", "preco": 12.0 },
+        { "id": "mini-coxinha-p", "nome": "Mini coxinha (porção P)", "preco": 13.0 },
+        { "id": "mini-coxinha-g", "nome": "Mini coxinha (porção G)", "preco": 39.9 },
+        { "id": "pao-de-metro", "nome": "Pão de metro (fatia)", "preco": 15.0 },
+        { "id": "enroladinho-salsicha", "nome": "Enroladinho de salsicha", "preco": 9.5 },
+        { "id": "empada-camarao", "nome": "Empada de camarão", "preco": 15.0 },
+        { "id": "empada-queijo-reino", "nome": "Empada de queijo do reino", "preco": 19.0 },
+        { "id": "empada-frango-requeijao", "nome": "Empada de frango com requeijão", "preco": 14.0 },
+        { "id": "pizza-brotinho", "nome": "Pizza brotinho", "preco": 16.0 },
+        { "id": "esfirra", "nome": "Esfirra", "preco": 15.0 }
+      ]
+    },
+    {
+      "nome": "Sanduíches naturais",
+      "itens": [
+        { "id": "sanduiche-frango", "nome": "Sanduíche natural de frango", "preco": 12.5 },
+        { "id": "sanduiche-ricota", "nome": "Sanduíche natural de ricota", "preco": 12.5 },
+        { "id": "sanduiche-atum", "nome": "Sanduíche natural de atum", "preco": 12.5 }
+      ]
+    },
+    {
+      "nome": "Tapiocas",
+      "itens": [
+        { "id": "tapioca-queijo", "nome": "Tapioca de queijo", "preco": 12.0 },
+        { "id": "tapioca-carne-sol-queijo", "nome": "Tapioca de carne de sol com queijo", "preco": 18.9 },
+        { "id": "tapioca-frango-requeijao", "nome": "Tapioca de frango com requeijão", "preco": 16.9 }
+      ]
+    },
+    {
+      "nome": "Croissant",
+      "itens": [
+        { "id": "croissant-simples", "nome": "Croissant simples", "preco": 11.0 },
+        { "id": "croissant-mussarela", "nome": "Croissant queijo mussarela", "preco": 15.9 },
+        { "id": "croissant-queijo-reino", "nome": "Croissant queijo do reino", "preco": 18.9 },
+        { "id": "croissant-frango-requeijao", "nome": "Croissant frango com requeijão", "preco": 17.5 },
+        { "id": "croissant-carne-sol-queijo", "nome": "Croissant carne de sol com queijo", "preco": 17.5 }
+      ]
+    },
+    {
+      "nome": "Cuscuz recheado",
+      "itens": [
+        { "id": "cuscuz-queijo", "nome": "Cuscuz com queijo", "preco": 14.0 },
+        { "id": "cuscuz-leite", "nome": "Cuscuz com leite", "preco": 14.0 },
+        { "id": "cuscuz-carne-sol-queijo", "nome": "Cuscuz carne de sol com queijo", "preco": 16.5 }
+      ]
+    },
+    {
+      "nome": "Hot dog",
+      "itens": [
+        { "id": "hotdog-bolonhesa", "nome": "Hot dog à bolonhesa", "preco": 15.0 },
+        { "id": "hotdog-molho-queijo", "nome": "Hot dog ao molho de queijo", "preco": 15.0 }
+      ]
+    },
+    {
+      "nome": "Sobremesas",
+      "itens": [
+        { "id": "bolo-rolo", "nome": "Bolo de rolo (fatia)", "preco": 8.5 },
+        { "id": "bolo-vulcao", "nome": "Bolo vulcão (fatia)", "preco": 9.5 },
+        { "id": "bolo-cenoura-chocolate", "nome": "Bolo cenoura com chocolate (fatia)", "preco": 9.5 },
+        { "id": "bolo-noiva", "nome": "Bolo de noiva (fatia)", "preco": 15.5 },
+        { "id": "bolo-pistache", "nome": "Bolo pistache", "preco": 15.9 },
+        { "id": "pudim-leite", "nome": "Pudim de leite", "preco": 12.5 },
+        { "id": "salada-frutas", "nome": "Salada de frutas", "preco": 12.0 },
+        { "id": "brownie-vo-carminha", "nome": "Brownie Vó Carminha", "preco": 7.5 }
+      ]
+    },
+    {
+      "nome": "Bebidas",
+      "itens": [
+        { "id": "suco-0q", "nome": "Suco 0Q", "preco": 10.0 },
+        { "id": "suco-recife", "nome": "Suco Recife", "preco": 7.5 },
+        { "id": "agua-mineral", "nome": "Água mineral", "preco": 5.0 },
+        { "id": "agua-coco", "nome": "Água de coco", "preco": 6.0 },
+        { "id": "refrigerante-lata", "nome": "Refrigerante lata", "preco": 8.0 },
+        { "id": "red-bull", "nome": "Red Bull 250ml", "preco": 9.5 }
+      ]
+    }
+  ]
+}
