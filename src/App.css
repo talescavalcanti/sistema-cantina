@@ -1,9 +1,12 @@
 .pagina {
   --gutter: max(16px, calc((100vw - 1240px) / 2));
+  --recuo: clamp(8px, 2.6vw, 40px);
   min-height: 100vh;
   padding: 16px var(--gutter) 120px;
   background: var(--cor-pagina);
   overflow-x: clip;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 760px) {
@@ -105,23 +108,73 @@
 }
 
 /* Hero */
-.heroi {
+/* Painéis orgânicos da referência: recuados das bordas da tela, cantos
+   arredondados, topo em arco e base levemente abaulada para baixo.
+   O fundo branco é um pseudo-elemento recortado por uma única forma contínua. */
+.heroi,
+.vitrine {
+  --raio-org: 44px;
+  --arco: 28px;
+  --arco-base: 16px;
   position: relative;
-  margin-inline: calc(-1 * var(--gutter));
-  padding: 28px var(--gutter) 8px;
+  z-index: 0;
+  margin-inline: calc(var(--recuo) - var(--gutter));
+  margin-top: var(--arco);
+}
+
+@media (min-width: 900px) {
+  .heroi,
+  .vitrine {
+    --raio-org: 80px;
+    --arco: 72px;
+    --arco-base: 44px;
+  }
+}
+
+.heroi::before,
+.vitrine::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * var(--arco)) 0 calc(-1 * var(--arco-base));
   background: var(--cor-painel);
-  border-radius: 50% 50% 0 0 / 48px 48px 0 0;
+  pointer-events: none;
+  --a: var(--arco);
+  --b: var(--arco-base);
+  --r: var(--raio-org);
+  clip-path: shape(
+    from 0 calc(var(--a) + var(--r)),
+    curve to 50% 0 with 0 calc(var(--a) + var(--r) * 0.15) / 28% 0,
+    curve to 100% calc(var(--a) + var(--r)) with 72% 0 / 100% calc(var(--a) + var(--r) * 0.15),
+    line to 100% calc(100% - var(--b) - var(--r)),
+    curve to 50% 100% with 100% calc(100% - var(--b) - var(--r) * 0.15) / 72% 100%,
+    curve to 0 calc(100% - var(--b) - var(--r)) with 28% 100% / 0 calc(100% - var(--b) - var(--r) * 0.15),
+    close
+  );
+}
+
+@supports not (clip-path: shape(from 0 0, line to 100% 0)) {
+  .heroi::before,
+  .vitrine::before {
+    inset: 0;
+    border-radius: var(--raio-org);
+  }
+}
+
+.heroi {
+  padding: 12px calc(var(--gutter) - var(--recuo) + 8px) 28px;
 }
 
 @media (min-width: 900px) {
   .heroi {
-    padding: 48px calc(var(--gutter) + 24px) 16px;
-    border-radius: 50% 50% 0 0 / 120px 120px 0 0;
+    padding: 8px calc(var(--gutter) - var(--recuo) + 24px) 40px;
   }
 }
 
 .heroi-titulo {
   position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .heroi-titulo svg {
@@ -175,10 +228,12 @@
 
 @media (min-width: 900px) {
   .heroi-grade {
-    grid-template-columns: 1fr minmax(260px, 330px) 1fr;
+    grid-template-columns: 1fr minmax(240px, 290px) 1fr;
     grid-template-areas: 'texto foto preco';
     align-items: center;
-    margin-top: -80px;
+    column-gap: 32px;
+    max-width: 1040px;
+    margin: -70px auto 0;
   }
 }
 
@@ -187,14 +242,15 @@
   position: relative;
   z-index: 2;
   justify-self: center;
-  width: 56%;
-  max-width: 290px;
+  width: 54%;
+  max-width: 260px;
 }
 
 @media (min-width: 900px) {
   .heroi-foto {
     width: 100%;
-    margin-bottom: -56px;
+    max-width: none;
+    margin-bottom: -112px;
   }
 }
 
@@ -205,7 +261,7 @@
 .foto-heroi {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
   object-fit: contain;
   filter: drop-shadow(0 18px 18px rgba(50, 20, 18, 0.18));
 }
@@ -217,9 +273,9 @@
   justify-content: center;
   gap: 4px;
   padding: 10px;
-  border: 2px dashed rgba(94, 15, 34, 0.3);
-  border-radius: 24px;
-  background: repeating-linear-gradient(45deg, #fbf4f1 0 12px, #f5e8e3 12px 24px);
+  border: 1.5px dashed rgba(94, 15, 34, 0.22);
+  border-radius: 20px;
+  background: repeating-linear-gradient(45deg, #fcf6f3 0 10px, #f7ece8 10px 20px);
   color: var(--cor-vinho);
   font-size: 12px;
   font-weight: 700;
@@ -239,7 +295,8 @@
 
 @media (min-width: 900px) {
   .heroi-texto {
-    padding: 0 0 40px;
+    justify-self: end;
+    padding: 0 0 24px;
   }
 }
 
@@ -287,7 +344,7 @@
   .heroi-preco {
     z-index: 1;
     justify-self: start;
-    margin: 0 0 40px -18px;
+    margin: 0 0 24px -40px;
   }
 }
 
@@ -356,10 +413,16 @@
   margin-top: -22px;
 }
 
+@media (min-width: 900px) {
+  .carrossel {
+    margin-top: -8px;
+  }
+}
+
 .carrossel-setas {
   display: flex;
   justify-content: center;
-  gap: min(420px, 55vw);
+  gap: min(380px, 55vw);
 }
 
 .carrossel-setas button {
@@ -377,12 +440,12 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 18px 0 26px;
+  margin: 16px 0 20px;
 }
 
 @media (min-width: 900px) {
   .carrossel-pontos {
-    margin-top: 44px;
+    margin-top: 28px;
   }
 }
 
@@ -420,22 +483,20 @@
 
 /* Vitrines (Mais pedidos e Cardápio) */
 .vitrine {
-  margin: 0 calc(-1 * var(--gutter)) 22px;
-  padding: 48px var(--gutter) 36px;
-  background: var(--cor-painel);
-  border-radius: 50% 50% 0 0 / 40px 40px 0 0;
-  scroll-margin-top: 16px;
+  margin-bottom: calc(var(--arco-base) + 20px);
+  padding: 20px calc(var(--gutter) - var(--recuo) + 8px) 32px;
+  scroll-margin-top: 96px;
 }
 
 @media (min-width: 900px) {
   .vitrine {
-    padding: 72px calc(var(--gutter) + 24px) 56px;
-    border-radius: 50% 50% 0 0 / 100px 100px 0 0;
+    margin-bottom: calc(var(--arco-base) + 32px);
+    padding: 16px calc(var(--gutter) - var(--recuo) + 24px) 48px;
   }
 }
 
 .titulo-secao {
-  margin: 0 0 28px;
+  margin: 0 0 32px;
   font-family: var(--fonte-display);
   font-weight: 900;
   font-variation-settings: 'SOFT' 100, 'WONK' 1;
@@ -448,7 +509,9 @@
 
 .vitrine-grade {
   display: grid;
-  gap: 28px 17px;
+  gap: 32px 24px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
 @media (min-width: 640px) {
@@ -467,7 +530,7 @@
 .foto-destaque {
   position: relative;
   z-index: 1;
-  width: 78%;
+  width: 64%;
   aspect-ratio: 1;
   object-fit: contain;
 }
@@ -476,13 +539,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  margin-top: -70px;
-  padding: 86px 18px 20px;
+  margin-top: -64px;
+  padding: 80px 24px 24px;
   border-radius: var(--raio-card);
   background: var(--cor-card);
   flex: 1;
+}
+
+@media (max-width: 639px) {
+  .foto-destaque {
+    width: 46%;
+  }
+
+  .destaque-corpo {
+    margin-top: -48px;
+    padding-top: 60px;
+  }
 }
 
 .destaque-card:nth-child(2) .destaque-corpo {
@@ -589,6 +663,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .grade {
+    gap: 20px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -609,7 +691,7 @@
   align-items: center;
   text-align: center;
   gap: 10px;
-  padding: 14px 12px 16px;
+  padding: 20px 16px;
   background: var(--cor-card);
   border-radius: var(--raio-card);
 }
@@ -620,13 +702,14 @@
 }
 
 .foto-card {
-  width: 76%;
+  width: 70%;
   aspect-ratio: 1;
   object-fit: contain;
+  margin-bottom: 4px;
 }
 
 .placeholder.foto-card {
-  border-radius: 20px;
+  border-radius: 16px;
   font-size: 10px;
 }
 

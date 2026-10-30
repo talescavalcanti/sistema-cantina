@@ -4,7 +4,7 @@ Basta salvar cada arquivo com o nome exato abaixo. Ele aparece no app sozinho, s
 
 Formato: **PNG recortado, com fundo transparente**, produto centralizado.
 
-## Hero (carrossel), `hero/`, 800×1200 (retrato)
+## Hero (carrossel), `hero/`, 800×1000 (retrato 4:5)
 
 - `hero/coxinha-frango-requeijao.png`: Coxinha de frango com requeijão
 - `hero/tapioca-carne-sol-queijo.png`: Tapioca de carne de sol com queijo

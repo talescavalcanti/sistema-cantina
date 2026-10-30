@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Fotos originais em alta (as versões recortadas ficam em public/assets)
+assets-originais/

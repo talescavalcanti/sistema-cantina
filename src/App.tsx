@@ -93,8 +93,8 @@ export default function App() {
   ]
   const maisPedidos = [
     { id: 'coxinha-frango', descricao: 'Massa sequinha e recheio cremoso de frango desfiado.' },
-    { id: 'tapioca-queijo', descricao: 'Feita na hora, crocante por fora e com queijo derretendo.' },
-    { id: 'bolo-rolo', descricao: 'Camadas finas de goiabada, receita pernambucana de verdade.' },
+    { id: 'enroladinho-salsicha', descricao: 'Salsicha envolvida em massa macia e empanada até ficar crocante.' },
+    { id: 'empada-frango-requeijao', descricao: 'Massa amanteigada que desmancha, recheio de frango com requeijão.' },
   ]
   const itemDestaque = todosItens.find((i) => i.id === destaques[slide].id)!
 
@@ -545,7 +545,7 @@ export default function App() {
           </div>
 
           <div className="heroi-foto">
-            {foto('/assets/hero/' + itemDestaque.id + '.png', itemDestaque.nome, 'foto-heroi', 'PNG recortado, sem fundo · 800×1200')}
+            {foto('/assets/hero/' + itemDestaque.id + '.png', itemDestaque.nome, 'foto-heroi', 'PNG recortado, sem fundo · 800×1000')}
           </div>
 
           <div className="heroi-preco">
